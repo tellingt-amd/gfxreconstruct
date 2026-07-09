@@ -456,7 +456,7 @@ void Dx12ReplayConsumerBase::ApplyBatchedResourceInitInfo(
         for (auto& resource_info : resource_infos)
         {
             auto object_info = GetObjectInfo(resource_info.second.resource_id);
-            if (object_info->extra_info != nullptr)
+            if (object_info != nullptr && object_info->extra_info != nullptr)
             {
                 auto extra_info = GetExtraInfo<D3D12ResourceInfo>(object_info);
                 if (extra_info->swap_chain_id != format::kNullHandleId)
